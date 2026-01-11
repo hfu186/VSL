@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vie-Sign: Dịch Thuật Ngôn Ngữ Ký Hiệu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://vhg.cmp.uea.ac.uk/tech/jas/vhg2021/cwa/cwasa.css" />
+    <link rel="stylesheet" href="./html.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script type="text/javascript" src="http://vhg.cmp.uea.ac.uk/tech/jas/vhg2021/cwa/allcsa.js"></script>
+
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+    <section id="landing-page"
+        class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-800 text-white px-4">
+        <div class="max-w-4xl text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Vie-Sign</h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 leading-relaxed">
+                Hệ thống dịch thuật ngôn ngữ ký hiệu Việt Nam thông minh. <br>
+                Kết nối giao tiếp giữa người khiếm thính và cộng đồng.
+            </p>
+            <button onclick="startDemo()"
+                class="bg-white text-blue-700 px-10 py-4 rounded-full font-bold text-xl hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-2xl">
+                Bắt đầu Trải nghiệm <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+            <div class="mt-20 grid grid-cols-3 gap-8 opacity-70 text-sm">
+                <div><i class="fa-solid fa-microphone-lines text-2xl mb-2"></i>
+                    <p>Nhận diện Giọng nói</p>
+                </div>
+                <div><i class="fa-solid fa-keyboard text-2xl mb-2"></i>
+                    <p>Nhập văn bản</p>
+                </div>
+                <div><i class="fa-solid fa-user-tie text-2xl mb-2"></i>
+                    <p>Avatar 3D Hiện đại</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo-page" class="hidden min-h-screen p-4 md:p-8">
+        <header class="max-w-7xl mx-auto flex justify-between items-center mb-8">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 p-2 rounded-lg text-white">
+                    <i class="fa-solid fa-sign-language text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">Vie-Sign Workspace</h2>
+            </div>
+            <button onclick="location.reload()" class="text-slate-500 hover:text-slate-800">
+                <i class="fa-solid fa-house"></i> Trang chủ
+            </button>
+        </header>
+
+        <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7 bg-white rounded-3xl shadow-xl p-4 min-h-[500px] flex flex-col">
+                <div class="flex items-center justify-between mb-4 px-2">
+                    <span class="flex items-center text-sm font-semibold text-green-500">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span> Avatar System Ready
+                    </span>
+                    <div class="text-xs text-slate-400">JA Signing Avatar Framework</div>
+                </div>
+                <div class="avatar-wrapper">
+                    <div class="CWASAPanel av0"></div>
+                </div>
+            </div>
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-white rounded-3xl shadow-lg p-6 border border-slate-100">
+                    <h3 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fa-solid fa-pen-to-square mr-2 text-blue-500"></i> Nhập nội dung
+                    </h3>
+                    <div class="mb-6">
+                        <textarea id="textInput" placeholder="Nhập câu tiếng Việt cần dịch..."
+                            class="w-full h-24 p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"></textarea>
+                        <button onclick="processText()"
+                            class="w-full mt-2 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            Dịch sang Ký hiệu
+                        </button>
+                    </div>
+                    <div class="relative flex py-3 items-center">
+                        <div class="flex-grow border-t border-slate-200"></div>
+                        <span class="flex-shrink mx-4 text-slate-400 text-sm italic">hoặc sử dụng âm thanh</span>
+                        <div class="flex-grow border-t border-slate-200"></div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-4">
+                        <button id="recordBtn" onclick="startRecording()"
+                            class="flex flex-col items-center justify-center p-4 border-2 border-dashed border-slate-200 rounded-2xl hover:bg-red-50 hover:border-red-200 transition-all group">
+                            <i class="fa-solid fa-microphone text-2xl text-slate-400 group-hover:text-red-500 mb-2"></i>
+                            <span class="text-sm font-medium">Ghi âm</span>
+                        </button>
+                        <label
+                            class="cursor-pointer flex flex-col items-center justify-center p-4 border-2 border-dashed border-slate-200 rounded-2xl hover:bg-blue-50 hover:border-blue-200 transition-all group">
+                            <i
+                                class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400 group-hover:text-blue-500 mb-2"></i>
+                            <span class="text-sm font-medium">Tải tệp</span>
+                            <input type="file" id="audioFile" accept="audio/*" class="hidden"
+                                onchange="uploadAudio()" />
+                        </label>
+                        <button onclick="repeatAvatar()"
+                            class="flex flex-col items-center justify-center p-4 border-2 border-dashed border-slate-200 rounded-2xl hover:bg-red-50 hover:border-red-200 transition-all group">
+                            <i
+                                class="fa-solid fa-rotate-right mr-1  text-2xl text-slate-400 group-hover:text-red-500 mb-2"></i>
+                            Lặp lại
+                        </button>
+                    </div>
+
+                    <div id="recordingUI"
+                        class="hidden mt-4 bg-red-500 text-white p-3 rounded-xl flex justify-between items-center animate-pulse">
+                        <span class="flex items-center"><i class="fa-solid fa-circle mr-2 text-[10px]"></i> Đang ghi
+                            âm...</span>
+                        <button onclick="stopRecording()"
+                            class="bg-white text-red-500 px-3 py-1 rounded-lg font-bold text-xs uppercase">Dừng</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 rounded-3xl shadow-xl p-6 text-white min-h-[150px]">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Kết quả nhận diện
+                    </h3>
+                    <div id="transcriptionOutput" class="text-lg text-slate-200 italic">
+                        Chưa có nội dung nào được nhận diện...
+                    </div>
+                    <div id="glossOutput" class="mt-4 pt-4 border-t border-slate-800 text-blue-400 font-mono text-sm">
+                        Gloss: [Waiting...]
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </section>
+    <script src="https://cdn.jsdelivr.net/gh/mattdiamond/Recorderjs@master/dist/recorder.js"></script>
+    <script src="js/process_audio.js"></script>
+    <script src="js/init_cwasa.js"></script>
+
+    <script>
+        function startDemo() {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('demo-page').classList.remove('hidden');
+        }
+        setTimeout(() => {
+            initCWASA();
+        }, 300);
+    </script>
+
+
+</body>
+
+</html>

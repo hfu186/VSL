@@ -1,0 +1,111 @@
+
+.spanInfo ,
+.divCtrlPanel textarea,
+.statusExtra,
+.divCtrlPanel button,
+.spanSiGMLCtrlA,
+.spanSiGMLCtrlB ,
+.divSiGML {
+  display: none !important;
+}
+
+.divCtrlPanel {
+  font-size: 13px;
+  min-width: 36px;
+  height:70px;
+  width:250px;
+  text-align: center;
+}
+
+.bttnSpeedDown,
+.bttnSpeedUp {
+  font-size: 15px;
+  color: #2563eb;
+  font-weight: bold;
+  width: 28px;         
+  height: 28px;
+  align-items: center;  
+  justify-content: center; 
+  border-radius: 999px;
+  background: #eef2ff;
+  transition: all 0.2s ease;
+}
+
+.bttnSpeedReset {
+  color: #035c15;
+  font-weight: bold;
+  border-radius: 999px;
+  background: #eef2ff;
+
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.control-panel {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn i {
+  font-size: 16px;
+}
+
+/* Primary */
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+.btn-primary:hover {
+  background: #1e40af;
+}
+
+/* Record */
+.btn-record {
+  background: #dc2626;
+  color: white;
+}
+.btn-record:hover {
+  background: #b91c1c;
+}
+
+/* Stop */
+.btn-stop {
+  background: #6b7280;
+  color: white;
+}
+.btn-stop:hover {
+  background: #4b5563;
+}
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 14px;
+  color: #374151;
+  margin-top: 8px;
+}

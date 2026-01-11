@@ -1,0 +1,30 @@
+<sigml><hns_sign gloss="em_gái"> 
+<hamnosys_nonmanual> 
+<hnm_head tag="TR"/> 
+<hnm_shoulder tag="HR"/> 
+</hamnosys_nonmanual> 
+<hamnosys_manual> 
+<hamflathand/> 
+<hamextfingerl/> 
+<hampalmd/> 
+<hamlrat/> 
+<hamshoulders/> 
+<hambetween/> 
+<hamshoulders/> 
+<hamreplace/> 
+<hamceeopen/> 
+<hamextfingeru/> 
+<hampalml/> 
+<hamparbegin/> 
+<hammoveur/> 
+<hamslow/> 
+<hamearlobe/> 
+<hamfusionbegin/> 
+<hamreplace/> 
+<hampinch12open/> 
+<hamextfingerur/> 
+<hampalmu/> 
+<hamfusionend/> 
+<hamparend/> 
+</hamnosys_manual> 
+</hns_sign></sigml>
